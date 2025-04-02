@@ -13,4 +13,4 @@ Este repositório contém minhas anotações de estudo sobre desenvolvimento de 
 - [Java](backend/Java.md)
 
 ### ☁️ DevOps
-- [Git](devops/Git.md)
+- [Git](./devops/Git.md)

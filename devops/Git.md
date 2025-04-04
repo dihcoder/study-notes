@@ -14,6 +14,9 @@ git checkout <commit-hash>
 # Creating a New Branch
 git checkout -b <new-branch-name>
 
+# Listing branches
+git branch -r
+
 # Deleting a Local Branch (If Merged)
 git branch -d <branch-name>
 
@@ -67,6 +70,9 @@ git push origin main --force
 
 # Displaying Repository History in a Graph Format
 git log --all --decorate --oneline --graph
+
+# When a branch/tag has been removed on remote but still appears locally
+git fetch --prune --tags
 ```
 
 # GitHub
@@ -194,4 +200,40 @@ git flow hotfix finish 1.1
 
 # Push All Local Branches to GitHub
 git push --all
+```
+
+#### # If you mistakenly pushed a wrong tag to the remote
+```sh
+git tag # Lists local tags
+git ls-remote --tags origin # Lists remote tags
+
+# You can create a new tag to fix the version
+git tag <new-tag> <current-tag>
+
+# Upload the new tag to the remote repository
+git push origin <new-tag>
+
+# Delete the local wrong tag
+git tag -d <wrong-tag>
+
+# Delete from remote repository
+git push origin --delete <wrong-tag>
+```
+
+#### Or you can revert and recreate the release (if you haven't pushed it yet)
+```sh
+# To remove the last commit from main (which came from release)
+git checkout main
+git reset --hard HEAD~1  # Reverts back to before the release
+
+# To remove the last commit from develop (if release was merged into it as well)
+git checkout develop
+git reset --hard HEAD~1
+
+# Delete the wrong tag and redo the release
+git tag -d <wrong-tag>  # Removes the local wrong tag
+git flow release start <new-tag>
+
+# Correctly finalize the release (now with the correct tag)
+git flow release finish <new-tag>
 ```

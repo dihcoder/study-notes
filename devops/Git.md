@@ -56,6 +56,45 @@ git diff --staged  # Press 'q' to exit
 git reset --hard origin/master
 ```
 
+## Working with Tags
+```sh
+# Create a lightweight tag
+git tag <tag-name>
+
+# Create an annotated tag (with message and metadata)
+git tag -a <tag-name> -m "Tag description"
+
+# Show all tags in the repository
+git tag
+
+# Find tags that match a pattern
+git tag -l "v1.*"
+
+# Display information from an annotated tag
+git show <tag-name>
+
+# Create a tag for an old commit (replace <commit-hash> with the commit hash)
+git tag -a <tag-name> <commit-hash> -m "Description"
+
+# Send a single tag to the remote
+git push origin <tag-name>
+
+# Send all local tags to remote
+git push --tags
+
+# Excluir uma tag localmente
+git tag -d <tag-name>
+
+# Remove a tag from the remote repository
+git push --delete origin <tag-name>
+
+# Create a branch based on a tag (when working with releases)
+git checkout -b <branch-name> <tag-name>
+
+# View the difference between a tag and the current branch
+git diff <tag-name>
+```
+
 ## Advanced Commands
 
 ```sh
@@ -173,6 +212,8 @@ GitFlow is a branching model for managing a project's version control. It helps 
 
 ## Commands:
 
+### Basic GitFlow Commands
+
 ```sh
 # Initialize GitFlow
 git flow init
@@ -202,12 +243,14 @@ git flow hotfix finish 1.1
 git push --all
 ```
 
-#### # If you mistakenly pushed a wrong tag to the remote
+### Commands if you mistakenly pushed a wrong tag to the remote
+
+#### You can create a new tag to fix the version
 ```sh
 git tag # Lists local tags
 git ls-remote --tags origin # Lists remote tags
 
-# You can create a new tag to fix the version
+# To create a new tag to fix the version
 git tag <new-tag> <current-tag>
 
 # Upload the new tag to the remote repository

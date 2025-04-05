@@ -113,6 +113,20 @@ git log --all --decorate --oneline --graph
 # When a branch/tag has been removed on remote but still appears locally
 git fetch --prune --tags
 ```
+## Utilities
+
+### Retrieve Remote Repository by Pushing a Local Repository
+
+```sh
+# In the terminal, inside your local repository folder
+git remote add origin https://github.com/your-user/new-repository.git
+
+# If an old origin already exists, you can overwrite it with
+git remote set-url origin https://github.com/your-user/new-repository.git
+
+# Push the content
+git push -u origin main
+```
 
 # GitHub
 

@@ -294,3 +294,12 @@ git flow release start <new-tag>
 # Correctly finalize the release (now with the correct tag)
 git flow release finish <new-tag>
 ```
+
+#### Utimately, you can go back to an earlier commit and delete later commits (permanently)
+```sh
+git reset --hard <old_commit_hash>
+# The --hard erases subsequent changes.
+
+git push origin main --force
+# The --force is necessary because you are overwriting the remote history.
+```

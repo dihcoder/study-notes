@@ -302,4 +302,9 @@ git reset --hard <old_commit_hash>
 
 git push origin main --force
 # The --force is necessary because you are overwriting the remote history.
+
+# If you prefer, you can go back to a previous commit, but without deleting files from your directory
+git reset --soft <old_commit_hash>
+# It keeps the files as they are, but returns the HEAD pointer to the chosen commit.
+#The following commits disappear from the history, but the changes remain in the staging area.
 ```

@@ -2,6 +2,51 @@
 
 Git is a distributed version control system (DVCS) that allows developers to track changes in files. It is free, open-source, and was developed in 2005 by Linus Torvalds, the creator of the Linux kernel.
 
+## Configuration
+
+### Installation and initial config
+```sh
+# Install git
+sudo apt install git-all
+git --version
+
+# Set your user name and email address
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
+# Checking your settings
+git config --list
+
+# View all of your settings and where they are coming from
+git config --list --show-origin
+```
+
+### Signing commits using SSH
+```sh
+# Create an ssh key on your machine
+ssh-keygen -t ed25519 -C "email-here"
+
+# Submit the public key to github signing key (you should already have an authentication key configured)
+
+# Set Git to use SSH keys instead of traditional GPG to sign commits and tags.
+git config --global gpg.format ssh
+
+# Sets which public SSH key Git should use to sign commits and tags.
+git config --global user.signingkey 'your public signing key'
+
+# Enables auto-signing of all commits with the specified key.
+git config --global commit.gpgsign true
+
+# Enables automatic signing of all tags with your key.
+git config --global tag.gpgsign true
+
+# Start the SSH agent in the current terminal.
+eval "$(ssh-agent -s)"
+
+# Add your SSH private key to the SSH agent so Git can use it
+ssh-add <your-private-key-id>
+```
+
 ## Basic Commands
 
 ```sh

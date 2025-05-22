@@ -200,7 +200,7 @@ npx angular-cli-ghpages --dir=dist/repo-name
 
 # ..............................................................
 # If the build structure in angular.json looks like this:
-"outputPath": "dist/repo-name"
+"outputPath": "dist/repo-name/web"
 
 # 1. Delete the gh-pages branch locally and remotely:
 git push origin --delete gh-pages
@@ -210,7 +210,7 @@ git branch -D gh-pages
 ng build --base-href="/repo-name/"
 
 # 3. Deploy with the correct path:
-npx angular-cli-ghpages --dir=dist/repo-name
+npx angular-cli-ghpages --dir=dist/repo-name/web
 
 # Confirm on GitHub Pages:
 # - Go to Settings > Pages

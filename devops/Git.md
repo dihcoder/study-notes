@@ -173,6 +173,52 @@ git remote set-url origin https://github.com/your-user/new-repository.git
 git push -u origin main
 ```
 
+### Deploy Angular Project on GitHub Pages
+
+```sh
+# Install the angular-cli-ghpages package:
+npm install -g angular-cli-ghpages
+
+# Configure angular.json to build with correct baseHref:
+"baseHref": "/repo-name/"
+
+# Deploy with the command:
+npx angular-cli-ghpages --dir=dist/repo-name/browser
+
+# Go to:
+https://your-username.github.io/repo-name
+
+# ..............................................................
+# If you want to restart the deployment from scratch:
+# 1. Clear previous cache
+npx angular-cli-ghpages --dir=dist/repo-name --no-silent --no-skip-git
+
+# 2. Or do it manually:
+git branch -D gh-pages
+ng build --output-path=dist/repo-name/browser --base-href="/repo-name/"
+npx angular-cli-ghpages --dir=dist/repo-name
+
+# ..............................................................
+# If the build structure in angular.json looks like this:
+"outputPath": "dist/repo-name"
+
+# 1. Delete the gh-pages branch locally and remotely:
+git push origin --delete gh-pages
+git branch -D gh-pages
+
+# 2. Make a new build with base-href (this will create the complete build in the 'dist/repo-name' folder):
+ng build --base-href="/repo-name/"
+
+# 3. Deploy with the correct path:
+npx angular-cli-ghpages --dir=dist/repo-name
+
+# Confirm on GitHub Pages:
+# - Go to Settings > Pages
+# - Choose 'Deploy from a branch'
+# - Branch: 'gh-pages'
+# - Folder: / (root) (don't choose /docs)
+```
+
 # GitHub
 
 GitHub is an online platform that hosts Git repositories and enables collaboration among developers. It functions like a social network for programmers, allowing users to:

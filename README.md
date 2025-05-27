@@ -15,3 +15,5 @@ Este repositório contém minhas anotações de estudo sobre desenvolvimento de 
 
 ### ☁️ DevOps
 - [Git](devops/Git.md)
+- [GitHub](devops/GitHub.md)
+- [Netlify](devops/Netlify.md)

@@ -101,22 +101,22 @@ git diff --staged  # Press 'q' to exit
 git reset --hard origin/master
 ```
 
-## Branches locais e remotos divergentes
+## Diverging local and remote branches
 
 ```sh
-# 1. Merge: Junta os históricos mantendo todos os commits separados:
+# 1. Merge: Merge the histories keeping all commits separate:
 git pull --no-rebase
 
-# Ou configure permanentemente:
+# Or set permanently:
 git config pull.rebase false
 
-# 2. Rebase (recomendado para histórico linear): Reescreve os commits locais "por cima" dos commits remotos:
+# 2. Rebase (recommended for linear history): Rewrite local commits "over" remote commits:
 git pull --rebase
 
-# Ou configure permanentemente:
+# Or set permanently:
 git config pull.rebase true
 
-# 3. Fast-forward only (só se não houver divergência): Só permite o pull se não houver commits locais divergentes:
+# 3. Fast-forward only (only if there is no divergence): Only allows pulling if there are no divergent local commits:
 git pull --ff-only
 ```
 

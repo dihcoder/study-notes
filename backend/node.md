@@ -9,8 +9,13 @@ nvm ls
 
 # Install an specific node version
 nvm install <version-name>
+
 # Example
 nvm i lts/hydrogen
+
+# Another example
+nvm install 20     # or nvm install 20.19.0
+nvm use 20         # or nvm use 20.19.0
 
 # Set the standard node version
 nvm alias default <version-name>

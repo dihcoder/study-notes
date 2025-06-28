@@ -1,7 +1,13 @@
-## Install TailwindCSS using node
+## TailwindCSS
 
 ```bash
-npm install -D tailwindcss postcss autoprefixer
+# Install using Node.js
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+
+# Verify if it was installed (you must see 'tailwindcss' listed)
+ls node_modules/.bin/
+
+# Generate config files ('tailwind.config.js' and 'postcss.config.js')
 npx tailwindcss init -p
 ```
 

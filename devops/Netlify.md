@@ -1,10 +1,12 @@
-# 🚀 Deploying Angular Applications on Netlify
+# 🚀 Deployment
+
+## Deploying Angular Applications on Netlify
 
 This guide explains how to deploy an Angular application on [Netlify](https://www.netlify.com/), a free and easy-to-use platform for hosting static websites and SPAs.
 
 ---
 
-## ✅ Prerequisites
+### ✅ Prerequisites
 
 - Node.js and Angular CLI installed
 - Free Netlify account
@@ -12,7 +14,7 @@ This guide explains how to deploy an Angular application on [Netlify](https://ww
 
 ---
 
-## 🔧 Step 1: Build the Project
+### 🔧 Step 1: Build the Project
 
 Before uploading to Netlify, you need to compile the Angular project for production:
 
@@ -24,7 +26,7 @@ By default, the final files will be in the `dist/<project-name>/browser` folder.
 
 ---
 
-## 📁 Step 2: Adjust the `baseHref` (optional, but recommended)
+### 📁 Step 2: Adjust the `baseHref` (optional, but recommended)
 
 Open the `angular.json` file and add the `baseHref` option in:
 
@@ -42,7 +44,7 @@ ng build --configuration production --base-href "/"
 
 ---
 
-## ☁️ Step 3: Deploy to Netlify via Git
+### ☁️ Step 3: Deploy to Netlify via Git
 
 1. Upload your project to GitHub, GitLab or Bitbucket
 
@@ -62,7 +64,7 @@ ng build --configuration production --base-href "/"
 
 ---
 
-## ⚙️ Extra Tips
+### ⚙️ Extra Tips
 
 * For Angular routes to work correctly, create a `_redirects` file inside the `dist/<project>/browser` folder with the following content:
 
@@ -74,23 +76,23 @@ Or add this via **"Redirects and rewrites"** in the site settings in the Netlify
 
 ---
 
-## 🌐 After Deployment
+### 🌐 After Deployment
 
 * The site will be available on a free Netlify URL (`https://sitename.netlify.app`)
 * You can set up a custom domain for free
 
 ---
 
-## 📚 References
+### 📚 References
 
 * [Official Netlify documentation](https://docs.netlify.com/)
 * [Deploying SPAs on Netlify](https://docs.netlify.com/routing/redirects/)
 
 ---
 
-# 🚀 Deploying Vite Applications on Netlify
+## Deploying Vite Applications on Netlify
 
-## Local build with Vite, automatic deploy with Netlify
+### Local build with Vite, automatic deploy with Netlify
 
 Vite generates your ready application in the `dist/` folder using:
 
@@ -103,7 +105,7 @@ In Netlify, just configure:
 - Build command: `npm run build`
 - Publish directory: `dist`
 
-## Deploy directly from GitHub with Netlify + Vite
+### Deploy directly from GitHub with Netlify + Vite
 
 If you connect your GitHub repository to Netlify. Then every time you do a `git push`, Netlify:
 
@@ -111,7 +113,7 @@ If you connect your GitHub repository to Netlify. Then every time you do a `git 
 - Executes `npm run build`
 - Publishes the contents of `dist/`
 
-## Netlify Functions Compatibility
+### Netlify Functions Compatibility
 
 If your Vite application has serverless functions using Netlify Functions, you can use them normally.
 

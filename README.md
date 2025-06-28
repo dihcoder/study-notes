@@ -9,6 +9,7 @@ Este repositório contém minhas anotações de estudo sobre desenvolvimento de 
 - [CSS](frontend/CSS.md)
 - [JavaScript](frontend/JavaScript.md)
 - [Angular](frontend/Angular.md)
+- [TailwindCSS](frontend/TailwindCSS.md)
 
 ### 🔧 Backend
 - [Java](backend/Java.md)

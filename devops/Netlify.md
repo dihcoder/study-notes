@@ -87,3 +87,62 @@ Or add this via **"Redirects and rewrites"** in the site settings in the Netlify
 * [Deploying SPAs on Netlify](https://docs.netlify.com/routing/redirects/)
 
 ---
+
+# 🚀 Deploying Vite Applications on Netlify
+
+## Local build with Vite, automatic deploy with Netlify
+
+Vite generates your ready application in the `dist/` folder using:
+
+```bash
+npm run build
+```
+
+In Netlify, just configure:
+
+- Build command: `npm run build`
+- Publish directory: `dist`
+
+## Deploy directly from GitHub with Netlify + Vite
+
+If you connect your GitHub repository to Netlify. Then every time you do a `git push`, Netlify:
+
+- Runs `npm install`
+- Executes `npm run build`
+- Publishes the contents of `dist/`
+
+## Netlify Functions Compatibility
+
+If your Vite application has serverless functions using Netlify Functions, you can use them normally.
+
+**Example structure with functions:**
+
+```pgsql
+my-project/
+├─ netlify/
+│  └─ functions/
+│     └─ hello.ts
+├─ src/
+├─ index.html
+├─ vite.config.ts
+├─ tsconfig.json
+```
+
+**In netlify.toml, you define:**
+
+```toml
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[functions]
+  directory = "netlify/functions"
+```
+
+**And access its functions with fetch on the frontend:**
+
+```ts
+fetch('/.netlify/functions/hello')
+```
+
+> Vite handles the frontend, Netlify hosts and executes the functions on the backend.

@@ -92,6 +92,14 @@ template: `<app-child />`
 
 ---
 
+## 🧬 Property Binding
+
+```html
+<img [src]="user.imageUrl" />
+```
+
+---
+
 ## 🧬 Dynamic Attributes
 
 ```html

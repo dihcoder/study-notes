@@ -44,6 +44,15 @@ template: `<app-child />`
 
 ---
 
+## 🧵 String Interpolation
+
+```html
+// _.component.html
+<p>{{ item }}</p>
+```
+
+---
+
 ## 🔁 Loops in Templates
 
 ### ✅ New Syntax

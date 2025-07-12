@@ -2,7 +2,11 @@
 
 A complete overview of modern Angular features, syntax, and tooling.
 
-## 🚀 Install Angular CLI
+## 🚀 Angular CLI
+
+Is a command-line tool used to initialize, develop, scaffold, and maintain Angular applications. It streamlines the development workflow by providing a set of commands that automate common tasks, eliminating the need for manual setup and configuration. 
+
+### Installation
 
 ```bash
 npm install -g @angular/cli
@@ -24,14 +28,23 @@ ng serve
 
 ---
 
-## 📦 Generate Components, Services, etc.
+## 📦 Components, Services, Directives etc.
+
+A `component` is a fundamental building block of an application, representing a self-contained and reusable part of the user interface (UI).
+
+A `service` is a class that provides a specific piece of functionality or data to multiple components or other services within an application. Services are designed to encapsulate business logic, data fetching operations, or any other reusable code that is independent of the user interface.
+
+A `directive` is a class that adds behavior to elements in an Angular application. Essentially, directives are used to manipulate the Document Object Model (DOM) by modifying the appearance, structure, or behavior of elements, components, or other directives.
+
+The `RouterOutlet` is a directive that acts as a placeholder within a component's template. Its primary function is to dynamically load and display different components based on the current URL route. 
+
+### Component/Service Generation
 
 ```bash
 ng g c component-name
 ng g c directory/component-name
 ng g s services/service-name
 ```
-
 ---
 
 ## 🔗 Importing a Component
@@ -44,7 +57,47 @@ template: `<app-child />`
 
 ---
 
+## 🚥 Signals API
+
+The `Signals API` is a reactive programming primitive designed to manage application state and enhance performance through fine-grained reactivity. Introduced in Angular 17, it provides a lightweight and intuitive way to handle data changes and optimize change detection.
+
+### Key components of the Signals API include:
+
+- `signal()`: Creates a writable signal that holds a value and notifies its consumers when that value changes.
+  ```ts
+      import { signal } from '@angular/core';
+
+    const count = signal(0); // Initialize a signal with value 0
+    count.set(1); // Update the signal's value
+    console.log(count()); // Read the signal's value
+  ```
+
+- `computed()`: Creates a read-only signal whose value is derived from other signals. It automatically re-evaluates when its dependencies change.
+  ```ts
+      import { signal, computed } from '@angular/core';
+
+    const firstName = signal('John');
+    const lastName = signal('Doe');
+    const fullName = computed(() => `${firstName()} ${lastName()}`);
+    console.log(fullName()); // "John Doe"
+  ```
+
+- `effect()`: Allows execution of side effects in response to signal changes. Effects are useful for tasks like logging, synchronizing with localStorage, or interacting with third-party libraries.
+  ```ts
+      import { signal, effect } from '@angular/core';
+
+    const message = signal('Hello');
+    effect(() => {
+      console.log(`Message changed: ${message()}`);
+    });
+    message.set('World'); // Triggers the effect
+  ```
+
+---
+
 ## 🧵 String Interpolation
+
+Is a one-way data-binding technique used to display dynamic data from a component's TypeScript code within an HTML template. It provides a simple and secure way to embed expressions directly into the HTML, making the displayed content reactive to changes in the component's data. 
 
 ```html
 // _.component.html
@@ -55,25 +108,14 @@ template: `<app-child />`
 
 ## 🧵 Getter
 
+A getter is a special type of method in a TypeScript class that allows you to define a property whose value is calculated or derived when it is accessed, rather than being a stored value. It provides a way to control how a property's value is retrieved.
+
 ```ts
 export class UserComponent {
   selectedUser = DUMMY_USERS[randomIndex];
   get imagePath() {
     return 'assets/users/' + this.selectedUser.avatar;
   }
-}
-```
----
-
-## 🧵 Computed Function
-
-Is meant to be used with signals
-
-```ts
-import { computed } from '@angular/core'
-export class UserComponent {
-  selectedUser = signal(DUMMY_USERS[randomIndex]);
-  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
 }
 ```
 

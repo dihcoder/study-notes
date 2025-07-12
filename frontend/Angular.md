@@ -65,7 +65,7 @@ The `Signals API` is a reactive programming primitive designed to manage applica
 
 - `signal()`: Creates a writable signal that holds a value and notifies its consumers when that value changes.
   ```ts
-      import { signal } from '@angular/core';
+    import { signal } from '@angular/core';
 
     const count = signal(0); // Initialize a signal with value 0
     count.set(1); // Update the signal's value
@@ -74,7 +74,7 @@ The `Signals API` is a reactive programming primitive designed to manage applica
 
 - `computed()`: Creates a read-only signal whose value is derived from other signals. It automatically re-evaluates when its dependencies change.
   ```ts
-      import { signal, computed } from '@angular/core';
+    import { signal, computed } from '@angular/core';
 
     const firstName = signal('John');
     const lastName = signal('Doe');
@@ -84,7 +84,7 @@ The `Signals API` is a reactive programming primitive designed to manage applica
 
 - `effect()`: Allows execution of side effects in response to signal changes. Effects are useful for tasks like logging, synchronizing with localStorage, or interacting with third-party libraries.
   ```ts
-      import { signal, effect } from '@angular/core';
+    import { signal, effect } from '@angular/core';
 
     const message = signal('Hello');
     effect(() => {

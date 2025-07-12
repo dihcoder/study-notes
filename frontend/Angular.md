@@ -63,8 +63,22 @@ export class UserComponent {
   }
 }
 ```
+---
+
+## 🧵 Computed Function
+
+Is meant to be used with signals
+
+```ts
+import { computed } from '@angular/core'
+export class UserComponent {
+  selectedUser = signal(DUMMY_USERS[randomIndex]);
+  imagePath = computed(() => 'assets/users/' + this.selectedUser().avatar);
+}
+```
 
 ---
+
 ## 🔁 Loops in Templates
 
 ### ✅ New Syntax
@@ -196,6 +210,20 @@ submit() {
 ```ts
 keyUpHandler() {
   console.log("Key up!");
+}
+```
+
+### Click Event
+
+```html
+<button (click)="onClick()">Sort User</button>
+```
+
+```ts
+selectedUser = signal(DUMMY_USERS[randomIndex]);
+onClick() {
+  const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+  this.selectedUser.set(DUMMY_USERS[randomIndex]);
 }
 ```
 

@@ -18,7 +18,7 @@ ng new app-name
 # or
 ng new app-name --inline-style --inline-template --skip-tests
 # or
-ng new . --directory=. --skip-git
+ng new app-name --directory=. --skip-git
 ng serve
 ```
 

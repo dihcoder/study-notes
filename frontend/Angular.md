@@ -53,6 +53,18 @@ template: `<app-child />`
 
 ---
 
+## 🧵 Getter
+
+```ts
+export class UserComponent {
+  selectedUser = DUMMY_USERS[randomIndex];
+  get imagePath() {
+    return 'assets/users/' + this.selectedUser.avatar;
+  }
+}
+```
+
+---
 ## 🔁 Loops in Templates
 
 ### ✅ New Syntax

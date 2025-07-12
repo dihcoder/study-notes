@@ -1,40 +1,71 @@
-# Angular Notes
+# 📘 Angular Summary (Latest Version)
 
-## Install Angular CLI
+A complete overview of modern Angular features, syntax, and tooling.
 
-```sh
+## 🚀 Install Angular CLI
+
+```bash
 npm install -g @angular/cli
 ng --version
-```
+````
 
-## Creating an Angular App
+---
 
-```sh
+## 🏗 Creating and Running an Angular App
+
+```bash
 ng new app-name
+# or
+ng new app-name --inline-style --inline-template --skip-tests
+# or
+ng new . --directory=. --skip-git
 ng serve
 ```
 
-## Importing a Component
-```sh
-ng g c child
+---
+
+## 📦 Generate Components, Services, etc.
+
+```bash
+ng g c component-name
+ng g c directory/component-name
+ng g s services/service-name
 ```
 
+---
+
+## 🔗 Importing a Component
+
 ```ts
+// app.component.ts
 imports: [RouterOutlet, ChildComponent]
 template: `<app-child />`
 ```
 
-## Dynamic Attributes
+---
+
+## 🔁 Loops in Templates
+
+### ✅ New Syntax
 
 ```html
-<button [attr.aria-label]="elementLabel"></button>
-<button [id]="myId"></button>
-<button [class]="myClass"></button>
+@for (item of listItems; track item) {
+  <p>{{ item }}</p>
+}
 ```
 
-## Conditionals in Angular Template
+### 🕰 Older Syntax
 
-### New Syntax
+```html
+<p *ngFor="let item of listItems">{{ item }}</p>
+```
+
+---
+
+## ❓ Conditionals in Templates
+
+### ✅ New Syntax
+
 ```html
 @if (showTitle) {
   <h1>My Title</h1>
@@ -43,153 +74,155 @@ template: `<app-child />`
 }
 ```
 
-### Older Syntax
+### 🕰 Older Syntax
+
 ```html
 <h1 *ngIf="showTitle">My Title</h1>
 <p *ngIf="!showTitle">Title not shown</p>
 ```
 
-## Loops in Angular Template
+---
 
-### New Syntax
+## 🧬 Dynamic Attributes
+
 ```html
-@for (item of listItems; track item) {
-  <p>{{ item }}</p>
-}
+<button [attr.aria-label]="elementLabel"></button>
+<button [id]="myId"></button>
+<button [class]="myClass"></button>
 ```
 
-### Older Syntax
+---
+
+## 🔄 Data Binding with Signals
+
+### Basic Signal Binding
+
+```ts
+myVar = signal('value');
+```
+
 ```html
-<p *ngFor="let item of listItems">{{ item }}</p>
+<p>{{ myVar() }}</p>
 ```
 
-## Passing Data Between Components
+### Input Signal from Parent
 
-### @Input - Parent to Child
-
-#### `child.component.ts`
 ```ts
-import { Component, Input } from '@angular/core';
-
-@Component({
-  selector: 'app-child',
-  template: '<p>{{ data }}</p>'
-})
-export class ChildComponent {
-  @Input() data!: string;
-}
+// child.component.ts
+childVar = input('default');
 ```
 
-#### `parent.component.ts`
-```ts
-export class ParentComponent {
-  parentMessage = 'Hello from Parent';
-}
-```
-
-#### `parent.component.html`
 ```html
-<app-child [data]="parentMessage"></app-child>
+<!-- child.component.html -->
+<p>{{ childVar }}</p>
+
+<!-- parent.component.html -->
+<app-child [childVar]="parentVar()" />
 ```
 
-### @Output - Child to Parent via EventEmitter
+---
 
-#### `child.component.ts`
+## 📤 Passing Data Between Components
+
+### Parent ➡️ Child - `@Input`
+
 ```ts
-import { Component, EventEmitter, Output } from '@angular/core';
-
-@Component({
-  selector: 'app-child',
-  template: '<button (click)="submit()">Click</button>'
-})
-export class ChildComponent {
-  @Output() eventEmitter = new EventEmitter<string>();
-
-  submit() {
-    this.eventEmitter.emit("thanks");
-  }
-}
+// child.component.ts
+@Input() data!: string;
 ```
 
-#### `parent.component.ts`
-```ts
-export class ParentComponent {
-  login(event: string) {
-    console.log(event);
-  }
-}
-```
-
-#### `parent.component.html`
 ```html
+<!-- parent.component.html -->
+<app-child [data]="parentMessage" />
+```
+
+### Child ➡️ Parent - `@Output`
+
+```ts
+// child.component.ts
+@Output() eventEmitter = new EventEmitter<string>();
+submit() {
+  this.eventEmitter.emit('thanks');
+}
+```
+
+```html
+<!-- child.component.html -->
+<button (click)="submit()">Click</button>
+
+<!-- parent.component.html -->
 <app-child (eventEmitter)="login($event)"></app-child>
 ```
 
-## Event Listeners in Angular
+---
 
-### Call a function on `keyup`
+## 🖱 Event Listeners
 
-#### `_.component.html`
+### Simple Event
+
 ```html
 <input type="text" (keyup)="keyUpHandler()">
 ```
 
-#### `_.component.ts`
 ```ts
-export class Component {
-  keyUpHandler() {
-    console.log("Key up!");
-  }
+keyUpHandler() {
+  console.log("Key up!");
 }
 ```
 
-## Creating a Counter Component
+### Event With Object
 
-```sh
+```html
+<input type="text" (keyup)="keyUpHandler($event)">
+```
+
+```ts
+keyUpHandler(event: KeyboardEvent) {
+  console.log(`Key: ${event.key}`);
+}
+```
+
+---
+
+## 🧮 Counter Component with Signals
+
+```bash
 ng g c components/counter
 ```
 
-#### `counter.component.html`
-```html
-<p>Counter value: {{ counterValue() }}</p>
-<div>
-    <button (click)="increment()">Increment</button>
-    <button (click)="reset()">Reset</button>
-    <button (click)="decrement()">Decrement</button>
-</div>
-```
+### counter.component.ts
 
-#### `counter.component.ts`
 ```ts
-import { Component, signal } from '@angular/core';
+counterValue = signal(0);
 
-@Component({
-  selector: 'app-counter',
-  templateUrl: './counter.component.html',
-  styleUrls: ['./counter.component.css']
-})
-export class CounterComponent {
-  counterValue = signal(0);
+increment() {
+  this.counterValue.update(val => val + 1);
+}
 
-  increment() {
-    this.counterValue.update(val => val + 1);
-  }
-  
-  decrement() {
-    this.counterValue.update(val => val - 1);
-  }
+decrement() {
+  this.counterValue.update(val => val - 1);
+}
 
-  reset() {
-    this.counterValue.set(0);
-  }
+reset() {
+  this.counterValue.set(0);
 }
 ```
 
-## Routing in Angular
+### counter.component.html
 
-Angular is a SPA framework. Routes help define different pages while only loading bundles related to the accessed route.
+```html
+<p>Counter value: {{ counterValue() }}</p>
+<button (click)="increment()">Increment</button>
+<button (click)="reset()">Reset</button>
+<button (click)="decrement()">Decrement</button>
+```
 
-### Immediate Loading:
+---
+
+## 🧭 Routing in Angular
+
+### Immediate Loading
+
 ```ts
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -197,7 +230,8 @@ export const routes: Routes = [
 ];
 ```
 
-### Lazy Loading:
+### Lazy Loading with `loadComponent`
+
 ```ts
 export const routes: Routes = [
   {
@@ -212,55 +246,142 @@ export const routes: Routes = [
 ];
 ```
 
-## Angular Services
+### router-outlet and HeaderComponent Example
 
-Angular Services are used to encapsulate data, make HTTP calls, or perform any task that’s not directly related to data rendering.
+```ts
+// app.component.ts
+imports: [RouterOutlet, HeaderComponent],
+template: `
+  <app-header />
+  <main><router-outlet /></main>
+`
+```
 
-```sh
-ng g s services/serviceName
+```ts
+// header.component.ts
+imports: [RouterLink],
+template: `
+<header>
+  <nav>
+    <span routerLink="/">Home</span>
+    <ul><li routerLink="/about">About</li></ul>
+  </nav>
+</header>
+`
+```
+
+---
+
+## 🧰 Angular Services
+
+### Creating a Service
+
+```bash
 ng g s services/todos
 ```
 
-### Example:
+### todos.service.ts
 
-#### `src/app/model/todo.type.ts`
 ```ts
-export type Todo = {
-  id: number;
-  userId: number;
-  completed: boolean;
-  title: string;
-}
-```
-
-#### `todos.service.ts`
-```ts
-import { Injectable } from '@angular/core';
-import { Todo } from '../model/todo.type';
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class TodosService {
-  todoItems: Array<Todo> = [
-    {
-      id: 0,
-      userId: 1,
-      completed: false,
-      title: 'Go shopping'
-    },
-    {
-      id: 1,
-      userId: 1,
-      completed: false,
-      title: 'Mow the grass'
-    }
+  todoItems: Todo[] = [
+    { id: 0, userId: 1, completed: false, title: 'Go shopping' },
+    { id: 1, userId: 1, completed: false, title: 'Mow the grass' }
   ];
-  constructor() {}
 }
 ```
 
-## Making HTTP Calls with Angular Services
+### todos.component.ts (With Signals)
 
-- Provide HTTP module/providers in the app config using `provideHttpClient()`
-- Inject the `HttpClient` service
-- Use the HTTP methods
+```ts
+todoItems = signal<Todo[]>([]);
+
+ngOnInit() {
+  this.todoItems.set(this.todoService.todoItems);
+}
+```
+
+---
+
+## 🌐 Making HTTP Calls
+
+```ts
+import { HttpClient } from '@angular/common/http';
+
+@Component({...})
+export class MyComponent {
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    this.http.get('/api/data').subscribe(console.log);
+  }
+}
+```
+
+```ts
+// app.config.ts
+provideHttpClient()
+```
+
+---
+
+## 🌍 Deploy to Netlify
+
+### 1. Build production
+
+```bash
+ng build --configuration=production
+```
+
+### 2. Add `_redirects` file
+
+```
+/* /index.html 200
+```
+
+Include `src/_redirects` in `angular.json` under `assets`.
+
+### 3. Set up environment
+
+Create `.env`:
+
+```
+NG_APP_BASE_URL=http://localhost:5200
+```
+
+Update `environment.ts` and `environment.prod.ts`:
+
+```ts
+export const environment = {
+  Url: process.env['NG_APP_BASE_URL']
+};
+```
+
+Install env loader:
+
+```bash
+ng add @ngx-env/builder
+```
+
+### 4. Netlify Settings
+
+* Build Command: `ng build`
+* Publish Directory: `dist/client/browser`
+* Environment Variables: `NG_APP_BASE_URL`
+
+---
+
+## 🎨 TailwindCSS Setup
+
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init
+```
+
+Update `tailwind.config.js` and add Tailwind directives to `styles.css`.
+
+---
+
+> 📌 **Pro Tip:** Prefer using standalone components with the `imports` array instead of NgModules in modern Angular apps.
+

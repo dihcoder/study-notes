@@ -2,6 +2,36 @@
 
 A complete overview of modern Angular features, syntax, and tooling.
 
+## What is Angular
+
+Angular is a TypeScript-based open-source web application framework developed and maintained by Google. It's primarily used for building dynamic and interactive single-page applications (SPAs) and offers a structured approach for developing large-scale applications.
+
+### Framework vs. Library
+
+Angular is a framework, which provides a complete structure and set of tools for building applications, whereas React is a JavaScript library that requires additional libraries and frameworks to build a complete application.
+
+### TypeScript
+
+Angular is written in TypeScript, a superset of JavaScript that adds static typing and other features, making it easier to manage and scale large projects.
+
+### Single-Page Applications (SPAs)
+
+Angular is designed to create SPAs, which are web applications that load a single HTML page and dynamically update content as the user interacts with it, providing a smoother user experience.
+
+### Component-Based Architecture
+
+Angular uses a component-based architecture, where applications are built from reusable, independent components, promoting modularity and maintainability.
+
+### Features
+
+Angular includes a variety of features like routing, form management, client-server communication, and a suite of developer tools, all integrated into the framework. 
+
+### Scalability
+
+Angular is well-suited for building both small and large, enterprise-level applications, making it a popular choice for various projects. 
+
+---
+
 ## 🚀 Angular CLI
 
 Is a command-line tool used to initialize, develop, scaffold, and maintain Angular applications. It streamlines the development workflow by providing a set of commands that automate common tasks, eliminating the need for manual setup and configuration. 

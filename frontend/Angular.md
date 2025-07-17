@@ -29,15 +29,15 @@ Angular uses a component-based architecture, where applications are built from r
 ### Separation of Concerns
 
 Angular embraces SoC at multiple levels through its architecture and tooling:
-1. Components → Handle presentation (UI logic)
+1. **Components** → Handle presentation (UI logic)
    - Each component has its own template (HTML), style (CSS or SCSS) and logic (TypeScript).
-2. Services → Handle business logic & data
+2. **Services** → Handle business logic & data
    - Services are singleton classes designed to: fetch or update data, perform calculations and share logic between components.
-4. Routing Module → Handles navigation and app structure
+4. **Routing Module** → Handles navigation and app structure
    - Routing configuration is separated from the component logic, allowing you to define paths, route guards, lazy loading, etc.
-5. Modules → Organize features and app structure
+5. **Modules** → Organize features and app structure
    - Angular modules group related pieces together (components, services, pipes and directives).
-6. Directives and Pipes → Handle DOM behavior and data formatting
+6. **Directives and Pipes** → Handle DOM behavior and data formatting
    - They’re small, reusable units that isolate small concerns like: Show/hide logic and data transformation (e.g., currency or date formatting).
 
 ### Features

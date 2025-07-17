@@ -12,6 +12,11 @@ This guide explains how to deploy an Angular application on [Netlify](https://ww
 - Free Netlify account
 - Angular project already created
 
+- Script to install Netlify functions (Optional):
+  ```bash
+  npm install @netlify/functions
+  ```
+
 ---
 
 ### 🔧 Step 1: Build the Project

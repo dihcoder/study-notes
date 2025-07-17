@@ -67,7 +67,7 @@ Angular is well-suited for building both small and large, enterprise-level appli
 | Angular 13   | Nov 2021     | Removed View Engine completely, faster testing, TS 4.4                         |
 | **Angular 14**   | **Jun 2022**     | `Standalone components` (preview), typed forms, improved CLI                    |
 | Angular 15   | Nov 2022     | Standalone APIs stable, better lazy loading, DX improvements                   |
-| Angular 16   | May 2023     | Introduced Signals, SSR hydration, finer change detection                      |
+| **Angular 16**   | **May 2023**     | Introduced `Signals`, SSR hydration, finer change detection                      |
 | Angular 17   | Nov 2023     | Built-in `@if`/`@for`, full hydration for SSR, Signals in routing              |
 | Angular 18   | May 2024     | Optional Zone.js, expanded Signals API, performance and hydration updates      |
 

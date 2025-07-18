@@ -555,7 +555,8 @@ ng add @ngx-env/builder
    npm install tailwindcss @tailwindcss/postcss postcss --force
    ```
 2. Configure PostCSS Plugins: Create a `.postcssrc.json` file in the root of your project and add the `@tailwindcss/postcss` plugin to your PostCSS configuration.
-   ```.postcssrc.json
+   ```json
+   // .postcssrc.json
    {
      "plugins": {
        "@tailwindcss/postcss": {}
@@ -563,7 +564,8 @@ ng add @ngx-env/builder
    }
    ```
 3. Import Tailwind CSS: Add an `@import` to `./src/styles.css` that imports Tailwind CSS.
-   ```styles.css
+   ```css
+   /* styles.css */
    @import "tailwindcss";
    ```
 

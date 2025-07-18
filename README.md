@@ -4,6 +4,9 @@ Este repositório contém minhas anotações de estudo sobre desenvolvimento de 
 
 ## 📝 Índice
 
+### Web
+- [Web Basics](web/WebBasics.md)
+
 ### 🚀 Frontend
 - [HTML](frontend/HTML.md)
 - [CSS](frontend/CSS.md)

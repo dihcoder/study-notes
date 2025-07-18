@@ -47,6 +47,10 @@ A complete overview of modern Angular features, syntax, and tooling.
   - Immediate Loading
   - Lazy Loading
   - RouterOutlet and Header Example
+- [Query Strings](./angular/14-query-strings.md)
+  - Reading query strings
+  - Updating or setting query strings
+  - Common use cases
 - [Services](./angular/11-services-and-http.md)
   - Creating Services
   - Injecting Services into Components

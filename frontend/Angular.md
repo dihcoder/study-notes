@@ -160,6 +160,9 @@ Is a one-way data binding mechanism that allows you to set the properties of HTM
 ### 🟠 Attribute Binding
 
 Attribute binding in Angular is a one-way data binding mechanism that allows you to set the value of an HTML element's attribute from a component's property. It is particularly useful when an HTML attribute does not have a corresponding DOM property, or when you need to manage specific attributes like aria-* for accessibility or colspan/rowspan in tables.
+
+> OBS: Attributes are defined in the HTML and provide initial values for properties. Properties are part of the DOM and represent the current state of an element. For example, the value attribute of an <input> element sets its initial value, while the value property reflects the current value as the user interacts with it.
+
 The syntax for attribute binding involves using square brackets [] around the attribute name, prefixed with attr..
 
 ```html
@@ -171,6 +174,7 @@ The syntax for attribute binding involves using square brackets [] around the at
   Content
 </td>
 ```
+In this example, `columnSpanValue` would be a property defined in your Angular component, and its value would dynamically set the colspan attribute of the `<td>` element. This enables dynamic control over HTML attributes based on your application's logic and data.
 
 ---
 

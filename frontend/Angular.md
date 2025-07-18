@@ -93,6 +93,8 @@ ng new app-name
 # or
 ng new app-name --inline-style --inline-template --skip-tests
 # or
+ng new projet-name --directory=.
+# or
 ng new app-name --directory=. --skip-git
 ng serve
 ```
@@ -166,7 +168,7 @@ The `Signals API` is a reactive programming primitive designed to manage applica
 
 ---
 
-## 🧵 String Interpolation
+## 🧵 Outputting Dynamic Content with *`String Interpolation`*
 
 Is a one-way data-binding technique used to display dynamic data from a component's TypeScript code within an HTML template. It provides a simple and secure way to embed expressions directly into the HTML, making the displayed content reactive to changes in the component's data. 
 

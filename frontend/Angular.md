@@ -132,6 +132,34 @@ template: `<app-child />`
 
 ---
 
+## 🟠 Dynamic Content
+
+### 🧵 Outputting Dynamic Content with *`String Interpolation`*
+
+Is a one-way data-binding technique used to display dynamic data from a component's TypeScript code within an HTML template. It provides a simple and secure way to embed expressions directly into the HTML, making the displayed content reactive to changes in the component's data. 
+
+```html
+// _.component.html
+<p>{{ item }}</p>
+```
+
+---
+
+## Getter
+
+A getter is a special type of method in a TypeScript class that allows you to define a property whose value is calculated or derived when it is accessed, rather than being a stored value. It provides a way to control how a property's value is retrieved.
+
+```ts
+export class UserComponent {
+  selectedUser = DUMMY_USERS[randomIndex];
+  get imagePath() {
+    return 'assets/users/' + this.selectedUser.avatar;
+  }
+}
+```
+
+---
+
 ## 🟠 Signals API
 
 The `Signals API` is a reactive programming primitive designed to manage application state and enhance performance through fine-grained reactivity. Introduced in Angular 17, it provides a lightweight and intuitive way to handle data changes and optimize change detection.
@@ -167,34 +195,6 @@ The `Signals API` is a reactive programming primitive designed to manage applica
     });
     message.set('World'); // Triggers the effect
   ```
-
----
-
-## 🟠 Dynamic Content
-
-### 🧵 Outputting Dynamic Content with *`String Interpolation`*
-
-Is a one-way data-binding technique used to display dynamic data from a component's TypeScript code within an HTML template. It provides a simple and secure way to embed expressions directly into the HTML, making the displayed content reactive to changes in the component's data. 
-
-```html
-// _.component.html
-<p>{{ item }}</p>
-```
-
----
-
-## Getter
-
-A getter is a special type of method in a TypeScript class that allows you to define a property whose value is calculated or derived when it is accessed, rather than being a stored value. It provides a way to control how a property's value is retrieved.
-
-```ts
-export class UserComponent {
-  selectedUser = DUMMY_USERS[randomIndex];
-  get imagePath() {
-    return 'assets/users/' + this.selectedUser.avatar;
-  }
-}
-```
 
 ---
 

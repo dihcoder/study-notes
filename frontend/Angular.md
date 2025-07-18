@@ -139,7 +139,7 @@ template: `<app-child />`
 Is a one-way data-binding technique used to display dynamic data from a component's TypeScript code within an HTML template. It provides a simple and secure way to embed expressions directly into the HTML, making the displayed content reactive to changes in the component's data. 
 
 ```html
-// _.component.html
+<!-- component-name.component.html -->
 <p>{{ item }}</p>
 ```
 

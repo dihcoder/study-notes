@@ -147,6 +147,8 @@ Is a one-way data-binding technique used to display dynamic data from a componen
 
 ## 🟠 Property Binding
 
+Is a one-way data binding mechanism that allows you to set the properties of HTML elements or Angular directives dynamically based on values from your component's TypeScript code.
+
 ```html
 <!-- component-name.component.html -->
 <img

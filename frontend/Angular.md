@@ -134,13 +134,25 @@ template: `<app-child />`
 
 ## 🟠 Dynamic Content
 
-### 🧵 Outputting Dynamic Content with *`String Interpolation`*
+### *`String Interpolation`*
 
 Is a one-way data-binding technique used to display dynamic data from a component's TypeScript code within an HTML template. It provides a simple and secure way to embed expressions directly into the HTML, making the displayed content reactive to changes in the component's data. 
 
 ```html
 <!-- component-name.component.html -->
 <p>{{ item }}</p>
+```
+
+---
+
+## 🟠 Property Binding
+
+```html
+<!-- component-name.component.html -->
+<img
+   [src]="user.imageUrl"
+   [alt]="user.imageAlt"
+/>
 ```
 
 ---
@@ -233,14 +245,6 @@ The `Signals API` is a reactive programming primitive designed to manage applica
 ```html
 <h1 *ngIf="showTitle">My Title</h1>
 <p *ngIf="!showTitle">Title not shown</p>
-```
-
----
-
-## 🟠 Property Binding
-
-```html
-<img [src]="user.imageUrl" />
 ```
 
 ---

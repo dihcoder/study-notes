@@ -2,7 +2,7 @@
 
 A complete overview of modern Angular features, syntax, and tooling.
 
-## What is Angular
+## 🟠 What is Angular
 
 Angular is a TypeScript-based open-source web application framework developed and maintained by Google. It's primarily used for building dynamic and interactive single-page applications (SPAs) and offers a structured approach for developing large-scale applications.
 
@@ -50,7 +50,9 @@ Angular is well-suited for building both small and large, enterprise-level appli
 
 ---
 
-## Angular Major Versions – Summary Table
+## 🟠 Angular Major Versions – Summary Table
+
+<br/>
 
 | Version      | Release Date | Key Highlights                                                                 |
 |--------------|--------------|---------------------------------------------------------------------------------|
@@ -73,7 +75,7 @@ Angular is well-suited for building both small and large, enterprise-level appli
 
 ---
 
-## 🚀 Angular CLI
+## 🟠 Angular CLI
 
 Is a command-line tool used to initialize, develop, scaffold, and maintain Angular applications. It streamlines the development workflow by providing a set of commands that automate common tasks, eliminating the need for manual setup and configuration. 
 
@@ -86,7 +88,7 @@ ng --version
 
 ---
 
-## 🏗 Creating and Running an Angular App
+### Creating and Running an Angular App
 
 ```bash
 ng new app-name
@@ -101,7 +103,7 @@ ng serve
 
 ---
 
-## 📦 Components, Services, Directives etc.
+## 🟠 Components, Services, Directives etc.
 
 A `component` is a fundamental building block of an application, representing a self-contained and reusable part of the user interface (UI).
 
@@ -120,7 +122,7 @@ ng g s services/service-name
 ```
 ---
 
-## 🔗 Importing a Component
+### 🔗 Importing a Component
 
 ```ts
 // app.component.ts
@@ -130,7 +132,7 @@ template: `<app-child />`
 
 ---
 
-## 🚥 Signals API
+## 🟠 Signals API
 
 The `Signals API` is a reactive programming primitive designed to manage application state and enhance performance through fine-grained reactivity. Introduced in Angular 17, it provides a lightweight and intuitive way to handle data changes and optimize change detection.
 
@@ -168,7 +170,9 @@ The `Signals API` is a reactive programming primitive designed to manage applica
 
 ---
 
-## 🧵 Outputting Dynamic Content with *`String Interpolation`*
+## 🟠 Dynamic Content
+
+### 🧵 Outputting Dynamic Content with *`String Interpolation`*
 
 Is a one-way data-binding technique used to display dynamic data from a component's TypeScript code within an HTML template. It provides a simple and secure way to embed expressions directly into the HTML, making the displayed content reactive to changes in the component's data. 
 
@@ -179,7 +183,7 @@ Is a one-way data-binding technique used to display dynamic data from a componen
 
 ---
 
-## 🧵 Getter
+## Getter
 
 A getter is a special type of method in a TypeScript class that allows you to define a property whose value is calculated or derived when it is accessed, rather than being a stored value. It provides a way to control how a property's value is retrieved.
 
@@ -194,7 +198,7 @@ export class UserComponent {
 
 ---
 
-## 🔁 Loops in Templates
+## 🟠 Loops in Templates
 
 ### ✅ New Syntax
 
@@ -212,7 +216,7 @@ export class UserComponent {
 
 ---
 
-## ❓ Conditionals in Templates
+## 🟠 Conditionals in Templates
 
 ### ✅ New Syntax
 
@@ -233,7 +237,7 @@ export class UserComponent {
 
 ---
 
-## 🧬 Property Binding
+## 🟠 Property Binding
 
 ```html
 <img [src]="user.imageUrl" />
@@ -241,7 +245,7 @@ export class UserComponent {
 
 ---
 
-## 🧬 Dynamic Attributes
+## 🟠 Dynamic Attributes
 
 ```html
 <button [attr.aria-label]="elementLabel"></button>
@@ -251,7 +255,7 @@ export class UserComponent {
 
 ---
 
-## 🔄 Data Binding with Signals
+## 🟠 Data Binding with Signals
 
 ### Basic Signal Binding
 
@@ -280,7 +284,7 @@ childVar = input('default');
 
 ---
 
-## 📤 Passing Data Between Components
+## 🟠 Passing Data Between Components
 
 ### Parent ➡️ Child - `@Input`
 
@@ -314,7 +318,7 @@ submit() {
 
 ---
 
-## 🖱 Event Listeners
+## 🟠 Event Listeners
 
 ### Simple Event
 
@@ -356,7 +360,7 @@ keyUpHandler(event: KeyboardEvent) {
 
 ---
 
-## 🧮 Counter Component with Signals
+## 🟠 Counter Component with Signals
 
 ```bash
 ng g c components/counter
@@ -391,7 +395,7 @@ reset() {
 
 ---
 
-## 🧭 Routing in Angular
+## 🟠 Routing in Angular
 
 ### Immediate Loading
 
@@ -444,7 +448,7 @@ template: `
 
 ---
 
-## 🧰 Angular Services
+## 🟠 Angular Services
 
 ### Creating a Service
 
@@ -476,7 +480,7 @@ ngOnInit() {
 
 ---
 
-## 🌐 Making HTTP Calls
+## 🟠 Making HTTP Calls
 
 ```ts
 import { HttpClient } from '@angular/common/http';
@@ -498,7 +502,7 @@ provideHttpClient()
 
 ---
 
-## 🌍 Deploy to Netlify
+## 🟠 Deploy to Netlify
 
 ### 1. Build production
 
@@ -544,14 +548,24 @@ ng add @ngx-env/builder
 
 ---
 
-## 🎨 TailwindCSS Setup
+## 🟠 TailwindCSS Setup
 
-```bash
-npm install -D tailwindcss postcss autoprefixer
-npx tailwindcss init
-```
-
-Update `tailwind.config.js` and add Tailwind directives to `styles.css`.
+1. Install @tailwindcss/postcss and its peer dependencies via npm.
+   ```bash
+   npm install tailwindcss @tailwindcss/postcss postcss --force
+   ```
+2. Configure PostCSS Plugins: Create a `.postcssrc.json` file in the root of your project and add the `@tailwindcss/postcss` plugin to your PostCSS configuration.
+   ```.postcssrc.json
+   {
+     "plugins": {
+       "@tailwindcss/postcss": {}
+     }
+   }
+   ```
+3. Import Tailwind CSS: Add an `@import` to `./src/styles.css` that imports Tailwind CSS.
+   ```styles.css
+   @import "tailwindcss";
+   ```
 
 ---
 

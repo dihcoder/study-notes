@@ -3,15 +3,57 @@
 A complete overview of modern Angular features, syntax, and tooling.
 
 - [About Angular](./angular/01-introduction.md)
+  - Framework vs. Library
+  - TypeScript
+  - Single-Page Applications (SPAs)
+  - Declarative Code
+  - Component-Based Architecture
+  - Separation of Concerns
+  - Features
+  - Scalability
 - [Angular Major Versions](./angular/02-major-versions.md)
 - [Angular CLI](./angular/03-cli-and-setup.md)
+  - Installation
+  - Creating and Running an App
+  - Component/Service Generation
 - [Components, Services, Directives etc.](./angular/04-components-and-architecture.md)
+  - Components
+  - Services
+  - Directives (RouterOutlet)
+  - Importing a Component
 - [Data Binding](./angular/05-data-binding.md)
+  - String Interpolation
+  - Property Binding
+  - Attribute Binding
+  - Dynamic Attributes
+  - Getters
 - [Signals API](./angular/06-signals-api.md)
+  - signal()
+  - computed()
+  - effect()
+  - Data Binding with Signals
+  - Counter Component Example
 - [Angular Template Syntax](./angular/07-templates.md)
+  - Loops in Templates (@for, *ngFor)
+  - Conditionals in Templates (@if, *ngIf)
 - [Passing Data Between Components](./angular/08-component-communication.md)
+  - @Input (Parent → Child)
+  - @Output (Child → Parent)
+  - Input Signals (Parent → Child)
 - [Event Listeners](./angular/09-event-handling.md)
+  - Click Events
+  - $event object
 - [Routing](./angular/10-routing.md)
+  - Immediate Loading
+  - Lazy Loading
+  - RouterOutlet and Header Example
 - [Services](./angular/11-services-and-http.md)
+  - Creating Services
+  - Injecting Services into Components
+  - HTTP Calls with HttpClient
 - [Deploying on Netlify](./angular/12-deploy-netlify.md)
+  - Build for Production
+  - Redirects
+  - Environment Variables
+  - Netlify Settings
 - [TailwindCSS Setup](./angular/13-tailwind-setup.md)

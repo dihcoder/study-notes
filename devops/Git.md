@@ -123,7 +123,7 @@ git pull --ff-only
 ## Delete a recent commit
 
 ```sh
-git reset --hard HEAD~1:
+git reset --hard HEAD~1
 # Undoes the last commit and completely discards the changes, as if they had never been made.
 ```
 

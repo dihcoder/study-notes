@@ -120,6 +120,35 @@ git config pull.rebase true
 git pull --ff-only
 ```
 
+## Completely remove the commit history from a Git repository
+
+```sh
+# 1. Create a new orphan branch (it will be "orphaned," meaning it will have no relation to the existing branches)
+git checkout --orphan new_branch
+
+# 2. Add all files to the new branch (from the working directory to the staging area)
+git add .
+git commit -m "Initial commit after cleaning history"
+
+# It creates an initial commit in the new branch, with a message indicating that the history has been cleaned.
+
+# 3. Delete the main branch (usually "main" or "master"):
+git branch -D main
+git push origin --delete main
+
+# It removes the main branch from the remote repository.
+
+# 4. Rename the new branch to the old main branch:
+git branch -m new_branch main
+
+# It renames the new branch to the original main branch name.
+
+# 5. Push the changes to the remote repository:
+git push -f origin main
+
+# It forces the new branch to be pushed to the remote repository, replacing the old history.
+```
+
 ## Working with Tags
 ```sh
 # Create a lightweight tag

@@ -120,7 +120,14 @@ git config pull.rebase true
 git pull --ff-only
 ```
 
-## Completely remove the commit history from a Git repository
+## Delete a recent commit
+
+```sh
+git reset --hard HEAD~1:
+# Undoes the last commit and completely discards the changes, as if they had never been made.
+```
+
+## Completely remove the commit history
 
 ```sh
 # 1. Create a new orphan branch (it will be "orphaned," meaning it will have no relation to the existing branches)

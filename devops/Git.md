@@ -125,6 +125,9 @@ git pull --ff-only
 ```sh
 git reset --hard HEAD~1
 # Undoes the last commit and completely discards the changes, as if they had never been made.
+
+git push --force
+# This forces the reset to be pushed to the remote repository.
 ```
 
 ## Completely remove the commit history
